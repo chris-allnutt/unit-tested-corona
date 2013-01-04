@@ -6,11 +6,26 @@ describe("Busted unit testing framework", function()
     newImage = function () end
   }
   
+  it("sets x and y properties on button when calling setPosition", function ()
+    local button, changeTextColorButton
+    local button = {
+      x = 0,
+      y = 0,
+      addEventListener = function() end
+    }
+    
+    changeTextColorButton = ChangeTextColorButton.new(nil, button)
+    changeTextColorButton:setPosition(2, 3)
+    
+    assert.are.same(button.x, 2)
+    assert.are.same(button.y, 3)
+  end)
+  
   it("binds a tap event to the button when instantiated", function ()
     local button, changeTextColorButton
     
     button = {
-      addEventListener = function() end,
+      addEventListener = function() end
     }
     mock(button, 'addEventListener')
     

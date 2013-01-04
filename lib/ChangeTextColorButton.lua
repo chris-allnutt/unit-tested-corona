@@ -19,10 +19,6 @@ function ChangeTextColorButton.setPosition(self, x_coordinate, y_coordinate)
   self.button.y = y_coordinate
 end
 
-function ChangeTextColorButton.buttonListener(self, event)
-  
-end
-
 function ChangeTextColorButton.bindTapListener(self)
   local this = self
   
