@@ -7,11 +7,13 @@ Get it running
 ==============
 
 On Mac:
+```bash
 > brew install luarocks
 > luarocks install busted
 > busted test.lua
+```
 
-There whould be 2 successes and 0 failures.
+There should be 2 successes and 0 failures.
 
 Things you need to know
 =======================
@@ -31,7 +33,7 @@ function some:objectFunction (param1, param2)
 end
 ```
 
-Except in my experience you can write tests for the first one but not the second one, because of the way spies work with the busted testing framework.
+Except in my experience you can write tests for the first one but not the second one, because of the way spies work with the busted testing framework.  When using the second method, Lua just takes care of the "self" portion at runtime (at least thats what I'm lead to believe by their documentation)
 
 TODO:
  * Put display mock into its own folder.
