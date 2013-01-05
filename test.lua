@@ -1,18 +1,12 @@
-describe("Busted unit testing framework", function()
+describe("Hello World Tested", function()
   local ChangeTextColorButton = require('lib.ChangeTextColorButton')
   
-  -- mocking coronas display object
-  display = {
-    newImage = function () end
-  }
+  -- mocking coronas display object, must be global
+  display = require('mocks.display')
   
   it("sets x and y properties on button when calling setPosition", function ()
     local button, changeTextColorButton
-    local button = {
-      x = 0,
-      y = 0,
-      addEventListener = function() end
-    }
+    button = require('mocks.button')
     
     changeTextColorButton = ChangeTextColorButton.new(nil, button)
     changeTextColorButton:setPosition(2, 3)
@@ -24,9 +18,8 @@ describe("Busted unit testing framework", function()
   it("binds a tap event to the button when instantiated", function ()
     local button, changeTextColorButton
     
-    button = {
-      addEventListener = function() end
-    }
+    local button = require('mocks.button');
+    
     mock(button, 'addEventListener')
     
     changeTextColorButton = ChangeTextColorButton.new('abc', button)
